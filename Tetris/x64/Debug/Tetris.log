@@ -1,0 +1,7 @@
+﻿  Tetris.cpp
+D:\PureCppGames\PureCppGames\Tetris\Tetris.cpp(1,1): warning C4005: '_UNICODE': makro yeniden tanımlama
+D:\PureCppGames\PureCppGames\Tetris\Tetris.cpp(1,1): message : '_UNICODE' önceden komut satırında bildirildi
+D:\PureCppGames\PureCppGames\Tetris\Tetris.cpp(2,1): warning C4005: 'UNICODE': makro yeniden tanımlama
+D:\PureCppGames\PureCppGames\Tetris\Tetris.cpp(2,1): message : 'UNICODE' önceden komut satırında bildirildi
+D:\PureCppGames\PureCppGames\Tetris\Tetris.cpp(237,39): warning C4554: '<<': olası hata için işleç önceliğini denetleyin; önceliği netleştirmek için parantez kullanın
+  Tetris.vcxproj -> D:\PureCppGames\PureCppGames\Tetris\x64\Debug\Tetris.exe
