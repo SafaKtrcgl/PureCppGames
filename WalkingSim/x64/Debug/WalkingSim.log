@@ -1,0 +1,9 @@
+﻿  WalkingSim.cpp
+D:\PureCppGames\PureCppGames\WalkingSim\WalkingSim.cpp(1,1): warning C4005: '_UNICODE': makro yeniden tanımlama
+D:\PureCppGames\PureCppGames\WalkingSim\WalkingSim.cpp(1,1): message : '_UNICODE' önceden komut satırında bildirildi
+D:\PureCppGames\PureCppGames\WalkingSim\WalkingSim.cpp(2,1): warning C4005: 'UNICODE': makro yeniden tanımlama
+D:\PureCppGames\PureCppGames\WalkingSim\WalkingSim.cpp(2,1): message : 'UNICODE' önceden komut satırında bildirildi
+D:\PureCppGames\PureCppGames\WalkingSim\WalkingSim.cpp(20,27): warning C4305: 'başlatılıyor': 'double' iken 'float' olarak kesildi
+D:\PureCppGames\PureCppGames\WalkingSim\WalkingSim.cpp(166,26): warning C4305: 'başlatılıyor': 'double' iken 'float' olarak kesildi
+D:\PureCppGames\PureCppGames\WalkingSim\WalkingSim.cpp(175,17): warning C4244: 'başlatılıyor': 'float' - 'int' dönüşümü; veri kaybı olabilir
+  WalkingSim.vcxproj -> D:\PureCppGames\PureCppGames\WalkingSim\x64\Debug\WalkingSim.exe
