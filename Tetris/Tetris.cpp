@@ -16,7 +16,7 @@ int nFieldHeight = 18;
 unsigned char *pField = nullptr;
 
 int nScreenWidth = 120;
-int nScreenHeight = 30;
+int nScreenHeight = 40;
 
 int Rotate(int px, int py, int r)
 {
