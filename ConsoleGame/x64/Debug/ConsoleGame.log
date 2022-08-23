@@ -1,0 +1,6 @@
+﻿  Source.cpp
+D:\PureCppGames\PureCppGames\ConsoleGame\Source.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\PureCppGames\PureCppGames\olcConsoleGameEngine.h(767,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\PureCppGames\PureCppGames\olcConsoleGameEngine.h(1107,1): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\PureCppGames\PureCppGames\olcConsoleGameEngine.h(1204,1): warning C4312: 'type cast': conversion from 'DWORD' to 'olcConsoleGameEngine *' of greater size
+  ConsoleGame.vcxproj -> D:\PureCppGames\PureCppGames\ConsoleGame\x64\Debug\ConsoleGame.exe

@@ -1,0 +1,5 @@
+﻿  Example.cpp
+D:\PureCppGames\PureCppGames\olcConsoleGameEngine.h(767,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\PureCppGames\PureCppGames\olcConsoleGameEngine.h(1107,1): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\PureCppGames\PureCppGames\olcConsoleGameEngine.h(1204,1): warning C4312: 'type cast': conversion from 'DWORD' to 'olcConsoleGameEngine *' of greater size
+  ExampleProject.vcxproj -> D:\PureCppGames\PureCppGames\ExampleProject\x64\Debug\ExampleProject.exe
