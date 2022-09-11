@@ -2,85 +2,90 @@
 #define UNICODE
 
 #include <iostream>
-#include <chrono>
-#include <Windows.h>
-#include <vector>
-#include <utility>
+#include <string>
 #include <algorithm>
+#include "olcConsoleGameEngine.h"
 
 using namespace std;
 
-int nScreenWidth = 120;
-int nScreenHeight = 40;
 
-float fPlayerX = 8.0f;
-float fPlayerY = 8.0f;
-float fPlayerR = 0.0f;
-float fSpeed = 5.0f;
-float fFOV = 3.14159 / 4.0;
-float fDepth = 16.0f;
-
-int nMapWidth = 16;
-int nMapHeight = 16;
-
-
-int main()
+class UltimateFPS : public olcConsoleGameEngine
 {
-	wchar_t* screen = new wchar_t[nScreenWidth * nScreenHeight];
-	HANDLE hConsole = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
-	SetConsoleActiveScreenBuffer(hConsole);
-	DWORD dwBytesWritten;
+public:
+	UltimateFPS()
+	{
+		m_sAppName = L"Ultimate First Person Shooter";
+	}
+
+private:
+	int nMapWidth = 32;
+	int nMapHeight = 32;
+
+	float fPlayerX = 8.0f;
+	float fPlayerY = 8.0f;
+	float fPlayerR = 0.0f;
+	float fSpeed = 5.0f;
+	float fFOV = 3.14159 / 4.0;
+	float fDepth = 16.0f;
 
 	wstring map;
-	/*
-	map += L"################";
-	for (int i = 0; i < 14; i++)
+
+	olcSprite* sprite = nullptr;
+	wstring sCurrentSpriteFile;
+
+protected:
+	virtual bool OnUserCreate()
 	{
-		map += L"#..............#";
+		map += L"################################";
+		map += L"#...............#..............#";
+		map += L"#...............#..............#";
+		map += L"#...............#..............#";
+		map += L"#...............#..............#";
+		map += L"#...............#..............#";
+		map += L"########........########.......#";
+		map += L"########........########.......#";
+		map += L"#...............#..............#";
+		map += L"#...............#..............#";
+		map += L"#...............#..............#";
+		map += L"#...............#..............#";
+		map += L"#..............................#";
+		map += L"#..............................#";
+		map += L"#..............................#";
+		map += L"#..............................#";
+		map += L"#..............................#";
+		map += L"#..............................#";
+		map += L"#..............................#";
+		map += L"#..............................#";
+		map += L"#..............#...............#";
+		map += L"#..............#...............#";
+		map += L"#..............#...............#";
+		map += L"#..............#...............#";
+		map += L"#.......########........########";
+		map += L"#.......########........########";
+		map += L"#..............#...............#";
+		map += L"#..............#...............#";
+		map += L"#..............#...............#";
+		map += L"#..............#...............#";
+		map += L"#..............#...............#";
+		map += L"################################";
+
+		sprite = new olcSprite(32, 32);
+		sCurrentSpriteFile = L"fps_wall.spr";
+
+		return true;
 	}
-	map += L"################";
-	*/
-	map += L"################";
-	map += L"#..............#";
-	map += L"#..............#";
-	map += L"########.......#";
-	map += L"#..............#";
-	map += L"#..............#";
-	map += L"#..............#";
-	map += L"#..............#";
-	map += L"#..............#";
-	map += L"#..............#";
-	map += L"#..............#";
-	map += L"#..............#";
-	map += L"#.......########";
-	map += L"#..............#";
-	map += L"#..............#";
-	map += L"################";
 
-	auto tp1 = chrono::system_clock::now();
-	auto tp2 = chrono::system_clock::now();
-
-	while (1)
+	virtual bool OnUserUpdate(float fElapsedTime)
 	{
-		// We'll need time differential per frame to calculate modification
-		// to movement speeds, to ensure consistant movement, as ray-tracing
-		// is non-deterministic
-		tp2 = chrono::system_clock::now();
-		chrono::duration<float> elapsedTime = tp2 - tp1;
-		tp1 = tp2;
-		float fElapsedTime = elapsedTime.count();
-
-
-		// Handle CCW Rotation
-		if (GetAsyncKeyState((unsigned short)'A') & 0x8000)
+		//Handle Rotation
+		if (m_keys[L'Q'].bHeld)
 			fPlayerR -= (fSpeed * 0.5f) * fElapsedTime;
 
-		// Handle CW Rotation
-		if (GetAsyncKeyState((unsigned short)'D') & 0x8000)
+		if (m_keys[L'E'].bHeld)
 			fPlayerR += (fSpeed * 0.5f) * fElapsedTime;
 
-		// Handle Forwards movement & collision
-		if (GetAsyncKeyState((unsigned short)'W') & 0x8000)
+		// Handle forwards movement & collision
+		if (m_keys[L'W'].bHeld)
 		{
 			fPlayerX += sinf(fPlayerR) * fSpeed * fElapsedTime;;
 			fPlayerY += cosf(fPlayerR) * fSpeed * fElapsedTime;;
@@ -92,7 +97,7 @@ int main()
 		}
 
 		// Handle backwards movement & collision
-		if (GetAsyncKeyState((unsigned short)'S') & 0x8000)
+		if (m_keys[L'S'].bHeld)
 		{
 			fPlayerX -= sinf(fPlayerR) * fSpeed * fElapsedTime;;
 			fPlayerY -= cosf(fPlayerR) * fSpeed * fElapsedTime;;
@@ -102,11 +107,35 @@ int main()
 				fPlayerY += cosf(fPlayerR) * fSpeed * fElapsedTime;;
 			}
 		}
+		
+		// Handle Left movement & collision
+		if (m_keys[L'A'].bHeld)
+		{
+			fPlayerX -= cosf(fPlayerR) * fSpeed * fElapsedTime;;
+			fPlayerY += sinf(fPlayerR) * fSpeed * fElapsedTime;;
+			if (map.c_str()[(int)fPlayerX * nMapWidth + (int)fPlayerY] == '#')
+			{
+				fPlayerX += cosf(fPlayerR) * fSpeed * fElapsedTime;;
+				fPlayerY -= sinf(fPlayerR) * fSpeed * fElapsedTime;;
+			}
+		}
+		
+		// Handle Right movement & collision
+		if (m_keys[L'D'].bHeld)
+		{
+			fPlayerX += cosf(fPlayerR) * fSpeed * fElapsedTime;;
+			fPlayerY -= sinf(fPlayerR) * fSpeed * fElapsedTime;;
+			if (map.c_str()[(int)fPlayerX * nMapWidth + (int)fPlayerY] == '#')
+			{
+				fPlayerX -= cosf(fPlayerR) * fSpeed * fElapsedTime;;
+				fPlayerY += sinf(fPlayerR) * fSpeed * fElapsedTime;;
+			}
+		}
 
-		for (int x = 0; x < nScreenWidth; x++)
+		for (int x = 0; x < ScreenWidth(); x++)
 		{
 			// For each column, calculate the projected ray angle into world space
-			float fRayAngle = (fPlayerR - fFOV / 2.0f) + ((float)x / (float)nScreenWidth) * fFOV;
+			float fRayAngle = (fPlayerR - fFOV / 2.0f) + ((float)x / (float)ScreenWidth()) * fFOV;
 
 			// Find distance to wall
 			float fStepSize = 0.1f;		  // Increment size for ray casting, decrease to increase										
@@ -172,8 +201,8 @@ int main()
 			}
 
 			// Calculate distance to ceiling and floor
-			int nCeiling = (float)(nScreenHeight / 2.0) - nScreenHeight / ((float)fDistanceToWall);
-			int nFloor = nScreenHeight - nCeiling;
+			int nCeiling = (float)(ScreenHeight() / 2.0) - ScreenHeight() / ((float)fDistanceToWall);
+			int nFloor = ScreenHeight() - nCeiling;
 
 			// Shader walls based on distance
 			short nShade = ' ';
@@ -197,38 +226,45 @@ int main()
 				nShade = ' ';
 			}
 
-			for (int y = 0; y < nScreenHeight; y++)
+			for (int y = 0; y < ScreenHeight(); y++)
 			{
 				if (y <= nCeiling)
-					screen[y * nScreenWidth + x] = ' ';
+					Draw(x, y, ' ');
 				else if (y > nCeiling && y <= nFloor)
-					screen[y * nScreenWidth + x] = nShade;
+					Draw(x, y, nShade);
 				else
 				{
-					float b = 1.0f - (((float)y - nScreenHeight / 2.0f) / ((float)nScreenHeight / 2.0f));
+					float b = 1.0f - (((float)y - ScreenHeight() / 2.0f) / ((float)ScreenHeight() / 2.0f));
 					if (b < 0.25)		nShade = '#';
 					else if (b < 0.5)	nShade = 'x';
 					else if (b < 0.75)	nShade = '-';
 					else if (b < 0.9)	nShade = '.';
 					else				nShade = ' ';
-					screen[y * nScreenWidth + x] = nShade;
+					Draw(x, y, nShade);
 				}
 			}
 		}
 
-		swprintf_s(screen, 40, L"X=%3.2f, Y=%3.2f, A=%3.2f FPS=%3.2f ", fPlayerX, fPlayerY, fPlayerR, 1.0f / fElapsedTime);
-
 		for (int nx = 0; nx < nMapWidth; nx++)
 			for (int ny = 0; ny < nMapWidth; ny++)
 			{
-				screen[(ny + 1) * nScreenWidth + nx] = map[ny * nMapWidth + nx];
+				Draw(nx + 1, ny + 1, map[ny * nMapWidth + nx]);
 			}
 
-		screen[((int)fPlayerX + 1) * nScreenWidth + (int)fPlayerY] = 'P';
+		Draw(1 + (int)fPlayerY, 1 + (int)fPlayerX, L'P');
 
-		screen[nScreenWidth * nScreenHeight - 1] = '\0';
-		WriteConsoleOutputCharacter(hConsole, screen, nScreenWidth * nScreenHeight, { 0, 0 }, &dwBytesWritten);
+
+		return true;
 	}
+
+};
+
+
+int main()
+{
+	UltimateFPS game;
+	game.ConstructConsole(320, 240, 4, 4);
+	game.Start();
 
 	return 0;
 }

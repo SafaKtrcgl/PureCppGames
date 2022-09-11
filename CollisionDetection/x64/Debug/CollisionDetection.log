@@ -1,0 +1,20 @@
+﻿  CollisionDetection.cpp
+D:\PureCppGames\PureCppGames\olcConsoleGameEngine.h(767,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\PureCppGames\PureCppGames\olcConsoleGameEngine.h(1107,1): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\PureCppGames\PureCppGames\olcConsoleGameEngine.h(1204,1): warning C4312: 'type cast': conversion from 'DWORD' to 'olcConsoleGameEngine *' of greater size
+D:\PureCppGames\PureCppGames\CollisionDetection\CollisionDetection.cpp(35,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\PureCppGames\PureCppGames\CollisionDetection\CollisionDetection.cpp(67,90): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\PureCppGames\PureCppGames\CollisionDetection\CollisionDetection.cpp(67,73): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\PureCppGames\PureCppGames\CollisionDetection\CollisionDetection.cpp(67,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\PureCppGames\PureCppGames\CollisionDetection\CollisionDetection.cpp(67,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\PureCppGames\PureCppGames\CollisionDetection\CollisionDetection.cpp(90,69): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\PureCppGames\PureCppGames\CollisionDetection\CollisionDetection.cpp(90,56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\PureCppGames\PureCppGames\CollisionDetection\CollisionDetection.cpp(102,27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\PureCppGames\PureCppGames\CollisionDetection\CollisionDetection.cpp(103,27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\PureCppGames\PureCppGames\CollisionDetection\CollisionDetection.cpp(226,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\PureCppGames\PureCppGames\CollisionDetection\CollisionDetection.cpp(226,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\PureCppGames\PureCppGames\CollisionDetection\CollisionDetection.cpp(226,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\PureCppGames\PureCppGames\CollisionDetection\CollisionDetection.cpp(226,20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\PureCppGames\PureCppGames\CollisionDetection\CollisionDetection.cpp(231,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\PureCppGames\PureCppGames\CollisionDetection\CollisionDetection.cpp(231,26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  CollisionDetection.vcxproj -> D:\PureCppGames\PureCppGames\CollisionDetection\x64\Debug\CollisionDetection.exe

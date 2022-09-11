@@ -1,10 +1,13 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: Ara dizin (x64\Debug\) başka bir projeden (WalkingSim.vcxproj) paylaşılan dosyalar içeriyor. Bu, hatalı temizleme ve yeniden oluşturma davranışına neden olabilir.
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (WalkingSim.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   FirstPersonShooter.cpp
-D:\PureCppGames\PureCppGames\WalkingSim\FirstPersonShooter.cpp(1,1): warning C4005: '_UNICODE': makro yeniden tanımlama
-D:\PureCppGames\PureCppGames\WalkingSim\FirstPersonShooter.cpp(1,1): message : '_UNICODE' önceden komut satırında bildirildi
-D:\PureCppGames\PureCppGames\WalkingSim\FirstPersonShooter.cpp(2,1): warning C4005: 'UNICODE': makro yeniden tanımlama
-D:\PureCppGames\PureCppGames\WalkingSim\FirstPersonShooter.cpp(2,1): message : 'UNICODE' önceden komut satırında bildirildi
-D:\PureCppGames\PureCppGames\WalkingSim\FirstPersonShooter.cpp(20,27): warning C4305: 'başlatılıyor': 'double' iken 'float' olarak kesildi
-D:\PureCppGames\PureCppGames\WalkingSim\FirstPersonShooter.cpp(166,26): warning C4305: 'başlatılıyor': 'double' iken 'float' olarak kesildi
-D:\PureCppGames\PureCppGames\WalkingSim\FirstPersonShooter.cpp(175,17): warning C4244: 'başlatılıyor': 'float' - 'int' dönüşümü; veri kaybı olabilir
+D:\PureCppGames\PureCppGames\WalkingSim\FirstPersonShooter.cpp(1,1): warning C4005: '_UNICODE': macro redefinition
+D:\PureCppGames\PureCppGames\WalkingSim\FirstPersonShooter.cpp(1,1): message : '_UNICODE' previously declared on the command line
+D:\PureCppGames\PureCppGames\WalkingSim\FirstPersonShooter.cpp(2,1): warning C4005: 'UNICODE': macro redefinition
+D:\PureCppGames\PureCppGames\WalkingSim\FirstPersonShooter.cpp(2,1): message : 'UNICODE' previously declared on the command line
+D:\PureCppGames\PureCppGames\olcConsoleGameEngine.h(767,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\PureCppGames\PureCppGames\olcConsoleGameEngine.h(1107,1): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\PureCppGames\PureCppGames\olcConsoleGameEngine.h(1204,1): warning C4312: 'type cast': conversion from 'DWORD' to 'olcConsoleGameEngine *' of greater size
+D:\PureCppGames\PureCppGames\WalkingSim\FirstPersonShooter.cpp(28,13): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\PureCppGames\PureCppGames\WalkingSim\FirstPersonShooter.cpp(195,1): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\PureCppGames\PureCppGames\WalkingSim\FirstPersonShooter.cpp(204,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   WalkingSim.vcxproj -> D:\PureCppGames\PureCppGames\WalkingSim\x64\Debug\FirstPersonShooter.exe

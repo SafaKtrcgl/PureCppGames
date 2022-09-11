@@ -24,7 +24,7 @@ protected:
 		{
 			for (int y = 0; y < m_nScreenHeight; y++)
 			{
-				Draw(x, y, L'#', rand() % 16);
+				Draw(x, y, L'o', rand() % 16);
 			}
 		}
 		return true;

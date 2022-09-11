@@ -1,0 +1,7 @@
+﻿  Frogger.cpp
+D:\PureCppGames\PureCppGames\olcConsoleGameEngine.h(767,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\PureCppGames\PureCppGames\olcConsoleGameEngine.h(1107,1): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\PureCppGames\PureCppGames\olcConsoleGameEngine.h(1204,1): warning C4312: 'type cast': conversion from 'DWORD' to 'olcConsoleGameEngine *' of greater size
+D:\PureCppGames\PureCppGames\Frogger\Frogger.cpp(164,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\PureCppGames\PureCppGames\Frogger\Frogger.cpp(164,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Frogger.vcxproj -> D:\PureCppGames\PureCppGames\Frogger\x64\Debug\Frogger.exe
